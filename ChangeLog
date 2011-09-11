@@ -1,0 +1,22 @@
+2011-09-09 Dirk Wenzel  <t3feblog@sinnzeichen.com>
+
+	* add config option to enable form fields
+	* required fields are allways enabled 
+
+2011-09-07 Dirk Wenzel  <t3feblog@sinnzeichen.com>
+
+	* fixed some localization errors
+	* fixed error of: false error messages when no file choosen 
+
+2011-08-31 Dirk Wenzel  <t3feblog@sinnzeichen.com>
+
+	* added option to post an image with blog entry
+
+2011-08-29 Dirk Wenzel  <t3feblog@sinnzeichen.com>
+
+	* remove html tags from user input in FE Post Widget
+	* added option for choosing localization file for FE Post Widget in constant editor
+
+2011-08-22 Dirk Wenzel  <t3feblog@sinnzeichen.com>
+
+	* initial code written

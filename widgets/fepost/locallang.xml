@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin &quot;postBlog&quot;</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="title">Blog post</label>
+			<label index="widgetSelector.description">Frontend blog post widget</label>
+			<label index="moreText">[more]</label>
+			<label index="back">back</label>
+			<label index="previous">&lt;</label>
+			<label index="next">&gt;</label>
+			<label index="postauthor">Author</label>
+			<label index="posttext">Text</label>
+			<label index="postauthoremail">Email</label>
+			<label index="postauthorwebsite">Website</label>
+			<label index="posttitle">Title</label>
+			<label index="postheader">Header</label>
+			<label index="captcha">Captcha</label>
+			<label index="captchaimage"> </label>
+			<label index="subscribe">Subscribe</label>
+			<label index="subscribe_text">Notify me when someone adds another comment to this post</label>
+			<label index="error_postauthor">Please tell us who you are</label>
+			<label index="error_postitle">Please specify a title</label>
+			<label index="error_postheader">Enter a header for your post</label>
+			<label index="error_posttext">Please enter a text for your post</label>
+			<label index="error_postauthoremail">Enter a correct email-address</label>
+			<label index="error_postauthorwebsite">Enter a correct website URL</label>
+			<label index="error_captcha">Please insert the text of the captcha image</label>
+			<label index="errorTitle">Please fill in the fields marked with a *</label>
+			<label index="submit">Submit</label>
+			<label index="trackbackLink">Trackback link</label>
+			<label index="postsTitle">Post(s)</label>
+			<label index="fileupload">File</label>
+			<label index="postFormTitle">New blog post</label>
+			<label index="trackbacksTitle">Trackback(s)</label>
+			<label index="permalinkTitle">Permalink</label>
+			<label index="tipafriendlinkText">Forward article</label>
+			<label index="backText">Back to main view</label>
+			<label index="postAdminMailSubject">New T3BLOG post received</label>
+			<label index="notAllowedToPost">Sorry, posting blogs is not allowed.</label>
+			<label index="notAllowedToPostWithoutLogin">Sorry, you must be logged in to post. Please login or register to post.</label>			
+			<label index="loginLinkText">Click here to login.</label>
+			<label index="toBeApproved">Thank you for the post. An admin will approve it as soon as possible.</label>
+			<label index="noResult">Sorry, we could not find any posts with specified filter. Please try another one.</label>
+			<label index="permalinkDesc">Copy this link if you want it to use as your permalink.</label>
+			<label index="trackbackLinkDesc">Copy this link into your trackback field of your own blog</label>
+			<label index="filteredByText">Currently the posts are filtered by: </label>
+			<label index="resetText">Reset this filter to see all posts.</label>
+			<label index="tagsTitle">Tags</label>
+			<label index="viewsTitle">Views</label>
+			<label index="editLink">edit</label>
+			<label index="subscribe.confirmation">Registration for post</label>
+			<label index="subscribe.confirmationHello">Hello,</label>
+			<label index="subscribe.confirmationtext">You subscribed to receive all new comments of the post in the subject. If this is wrong, please unsubscribe with the following link:</label>
+			<label index="subscribe.newComment">New comment for post</label>
+			<label index="subscribe.salutation">Dear</label>
+			<label index="subscribe.notification">A new comment has been added to the post in the subject:</label>
+			<label index="subscribe.unsubscribe">If you wish to no more being notified about new comments, please click (or copy) the following link:</label>
+			<label index="subscribe.optionalTextBeforePermalink"></label>
+			<label index="subscribe.optionalFooter"></label>
+			<label index="subscribe.unsubscribe.succesfully">You unsubscribed succesfully. You will no longer receive notifications for this post.</label>
+			<label index="filter_date_format">%B %e</label>
+			<label index="fileExists">File upload failed! A file with this name already exists.</label>
+			<label index="fileTooBig">File upload failed! The file is too big.</label>
+			<label index="fileMimeNotAllowed">File upload failed! This mime type is not allowed.</label>
+			<label index="fileExtensionNotAllowed">File upload failed! This file extension is not allowed.</label>
+			<label index="uploadSuccessfull">File upload completed.</label>
+			<label index="filePartialyUploaded">File upload failed! The file was only partially uploaded.</label>
+			<label index="fileNotFound">File upload failed! File not found.</label>
+			<label index="fileUnknownError">File upload failed! Unknown error.</label>		
+		</languageKey>
+		<languageKey index="de" type="array">
+			<label index="posts">Beiträge</label>
+			<label index="postFormTitle">Neuer Blog-Beitrag</label>
+			<label index="back">Zurück</label>
+			<label index="previous">Vorherige</label>
+			<label index="next">Nächste</label>
+			<label index="moreText">[mehr]</label>
+			<label index="submit">Absenden</label>
+			<label index="errorTitle">Aus folgenden Gründen konnte der Beitrag nicht gespeichert werden:</label>
+			<label index="comParentId">Referenz</label>
+			<label index="postauthor">AutorIn</label>
+			<label index="posttext">Text</label>
+			<label index="postheader">Überschrift</label>
+			<label index="postauthoremail">E-Mail</label>
+			<label index="postauthorwebsite">Website</label>
+			<label index="posttitle">Titel</label>
+			<label index="fileupload">Datei</label>
+			<label index="captcha">Captcha</label>
+			<label index="captchaimage"> </label>
+			<label index="subscribe">Abonnieren</label>
+			<label index="subscribe_text">Ich möchte über jeden weiteren Kommentar in diesem Post benachrichtigt werden.</label>
+			<label index="error_postauthor">Autor fehlt</label>
+			<label index="error_posttitle">Titel fehlt</label>
+			<label index="error_posttext">Text fehlt</label>
+			<label index="error_postheader">Überschrift fehlt</label>
+			<label index="error_postauthoremail">Eine gültige E-Mail fehlt</label>
+			<label index="error_postauthorwebsite">Eine gültige URL fehlt</label>
+			<label index="error_captcha">Bitte geben Sie den Text des Captcha-Bildes ein</label>
+			<label index="trackbackLink">Trackback link</label>
+			<label index="postsTitle">Posts</label>
+			<label index="tipafriendlinkText">weiterleiten</label>
+			<label index="postAdminMailSubject">Neuer Blog-Beitrag</label>
+			<label index="notAllowedToPost">Es ist nicht erlaubt Beiträge zu posten.</label>
+			<label index="notAllowedToPostWithoutLogin">Sie müssen angemeldet sein, um einen Beitrag zu posten. Bitte melden Sie sich an, wenn Sie registrierter Benutzer sind, oder registrieren Sie sich.</label>
+			<label index="backText">Zurück zur Listenansicht</label>
+			<label index="toBeApproved">Danke für den Beitrag. Wir werden Ihren Beitrag möglichst rasch anschauen und aufschalten.</label>
+			<label index="noResult">Kein Resultat gefunden.</label>
+			<label index="permalinkDesc">Kopieren Sie diesen Link um ihn als Permalink zu verwenden.</label>
+			<label index="trackbackLinkDesc">Kopieren Sie diesen Link in das Trackback Feld in Ihrem Blog.</label>
+			<label index="filteredByText">Zur Zeit wird gefiltert nach: </label>
+			<label index="resetText">Filter zurücksetzen</label>
+			<label index="tagsTitle">Tags</label>
+			<label index="viewsTitle">Views</label>
+			<label index="editLink">editieren</label>
+			<label index="subscribe.confirmation">Registrierung für Blogpost: </label>
+			<label index="subscribe.confirmationtext">Sie haben sich angemeldet, um über neue Kommentare für den im Betreff genannten Blogpost informiert zu werden. Falls sie dies nicht wünschen, klicken sie bitte auf den folgenden Link:</label>
+			<label index="subscribe.newComment">Neuer Kommentar für den Blogpost</label>
+			<label index="subscribe.salutation">Hallo</label>
+			<label index="subscribe.notification">Ein neuer Kommentar wurde dem im Betreff genannten Postblog hinzugefügt:</label>
+			<label index="subscribe.unsubscribe">Wenn sie nicht mehr über neue Kommentare informiert werden möchten, klicken (oder kopieren) sie bitte den folgenden Link:</label>
+			<label index="subscribe.optionalTextBeforePermalink"></label>
+			<label index="subscribe.optionalFooter"></label>
+			<label index="subscribe.unsubscribe.succesfully">Sie haben sich erfolgreich abgemeldet. In Zukunft erhalten sie keine Benachrichtigungen für diesen Post mehr.</label>
+			<label index="fileExists">Es gibt bereits eine Datei mit diesem Namen.</label>
+			<label index="fileTooBig">Die Datei ist zu groß.</label>
+			<label index="fileMimeNotAllowed">Dieser Medientyp ist nicht erlaubt.</label>
+			<label index="fileExtensionNotAllowed">Diese Dateierweiterung ist nicht erlaubt.</label>
+			<label index="uploadSuccessfull">Die Datei wurde erfolgreich hochgeladen.</label>
+			<label index="filePartialyUploaded">Die Datei wurde nur teilweise hochgeladen.</label>
+			<label index="fileNotFound">Datei nicht gefunden.</label>
+			<label index="fileUnknownError">Hochladen der Datei fehlgeschlagen! Unbekannter Fehler.</label>					
+		</languageKey>
+	</data>
+	<orig_hash type="array">
+	</orig_hash>
+	<orig_text type="array">
+	</orig_text>
+</T3locallang>

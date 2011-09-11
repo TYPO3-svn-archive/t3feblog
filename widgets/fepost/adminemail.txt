@@ -1,0 +1,14 @@
+The following blog post has just been received on ###TSFE###.
+
+Title: ###TITLE###
+
+Header: ###HEADER###
+
+Text:
+###TEXT###
+
+
+Author name: ###AUTHOR###
+Author Email: ###EMAIL###
+Author Website: ###WEBSITE###
+Author IP-Address: ###IP###

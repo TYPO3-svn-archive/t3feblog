@@ -1,0 +1,408 @@
+plugin.tx_t3blog_pi2 {
+	tx_t3feblog {
+		includeLibs = EXT:t3feblog/widgets/fepost/class.tx_t3feblog.php
+		# allow posts - if true blog posting from FE is allowed. 
+		# Default value: empty (not allowed)
+		allowPosts = {$plugin.tx_t3blog_pi2.tx_t3feblog.allowPosts}
+		
+		# backend user for frontend posts (uid) - This user must not be admin and must belong to the appropriate group (backendGroupForFrontendPosts).
+		# Default value: empty (nobody is allowed to post) 
+		backendUserForFrontendPosts = {$plugin.tx_t3blog_pi2.tx_t3feblog.backendUserForFrontendPosts}
+		
+		## backend group for frontend posts (uid) - This group should have very restricted rights i.e.
+		# ideally have only access to the sys folder for posts and only rights to write content elements and blog posts
+		# Default value: empty (none)
+		backendGroupForFrontendPosts = {$plugin.tx_t3blog_pi2.tx_t3feblog.backendGroupForFrontendPosts}
+		
+		# receive mail when new blog article is posted
+		# Default value: 1 (yes) 
+		mailReceivedPostToAdmin = {$plugin.tx_t3blog_pi2.tx_t3feblog.mailReceivedPostToAdmin}
+		
+		## Email address of the admin who approves new posts (To: field)
+		# Default value: example@example.org
+		adminsPostsEmail = {$plugin.tx_t3blog_pi2.tx_t3feblog.adminsPostsEmail}
+		
+		## Sender address of mails about new posts (From: field)
+		# Default value: example@example.org
+		adminsPostEmailFrom = {$plugin.tx_t3blog_pi2.tx_t3feblog.adminsPostEmailFrom}
+		
+		## Template for notification about new blogs to admin
+		# Default value: EXT:t3feblog/widgets/fepost/adminemail.txt
+		adminsPostMailTemplate = {$plugin.tx_t3blog_pi2.tx_t3feblog.adminsPostMailTemplate}
+		
+		## post hidden - Should be 1 to enable approving posts (and hide them initally) - otherwise each post from front end will be visible instantly in frontend
+		# Default value: 1 (hidden)
+		postHidden = {$plugin.tx_t3blog_pi2.tx_t3feblog.postHidden}
+		
+		## Enabled fields: Available values are:  postauthor, postauthoremail, postauthorwebsite, posttitle, postheader, posttext.
+		# Default value: All enabled
+		enabledFields = {$plugin.tx_t3blog_pi2.tx_t3feblog.enabledFields}
+		
+		## Required fields: Available values are: postauthor, posttext, postheader, posttitle, postauthoremail
+		# Default value: postauthor, posttext, postheader, posttitle, postauthoremail
+		requiredFields = {$plugin.tx_t3blog_pi2.tx_t3feblog.requiredFields}
+		#post approved - if zero after posting a message about approving the post will be shown
+		toBeApproved = {$plugin.tx_t3blog_pi2.tx_t3feblog.toBeApproved }
+		
+		#post category (uid) - the category which is set initialy for front end posts
+		postCategory = {$plugin.tx_t3blog_pi2.tx_t3feblog.postCategory}
+		
+		#captcha
+		useCaptcha = {$plugin.tx_t3blog_pi2.tx_t3feblog.useCaptcha}
+		captchaFont = x-files.ttf
+		captchaFontSize = 25
+		captchaFontColor = 000000
+		captchaEreg	= A-Za-z
+		captchaBackgroundColor = E3E3E3
+		captchaShowImage = 1
+		captchaBackgroundPNGImage = captcha.png
+		captchaLines = 3
+		
+		#file upload
+		uploadAllowed = {$plugin.tx_t3blog_pi2.tx_t3feblog.uploadAllowed}
+		#maxFileSize = {$plugin.tx_t3blog_pi2.tx_t3feblog.maxFileSize}
+		maxFileSize = 1048576
+		checkMime = 1
+		mimeInclude = image/gif,image/jpeg,application/x-zip-compressed,image/png
+		mimeExclude = application/octet-stream
+		checkExt = 1
+		extExclude = exe,php,php3
+		extInclude = *
+		uploadPath = uploads/pics/
+		FEuserHomePath=0
+		FEuserHomePath.field = username
+		noOverwriteFile = 1
+		fileMode = 0755
+		imageMaxWidth = 300
+		imageMaxHeight = 300
+		# image orientation: defines how tt_content handles image alignement  
+		# possible values (standard behavior with static tt_content template)
+		# 1 above-right
+		# 2 above-left
+		# 8 below-center
+		# 10 below-left
+		# 17 intext-right
+		# 18 intext-left
+		# 25 intext-right-nowrap
+		# 26 intext-left-nowrap
+		# default above-center
+		imageOrientation = 17
+		
+		#requiredField wrap
+		requiredFieldMarkerWrap = TEXT
+		requiredFieldMarkerWrap {
+			wrap = <span class="requiredField">|</span>
+			field = marker
+			required = 1
+		}
+		
+		#post error wrap
+		errorWrap = TEXT
+		errorWrap {
+			wrap = <li>|</li>
+			field = value
+			required = 1
+		}
+
+		# no post allowed wrap
+		noPostAllowedWrap = TEXT
+		noPostAllowedWrap {
+			wrap = <div class="postNotAllowed"> | </div>
+			field = text
+			required =1
+			
+		}
+		
+		# localization file for FE post widget
+		fepostLLFile = {$plugin.tx_t3blog_pi2.tx_t3feblog.fepostLocalization}
+		
+		#####Post Form #####
+		postForm = COA
+		postForm {
+			wrap = <div id="postFormNonAjax" class="postFormStyle"> | </div>
+			#5 = TEXT
+			#5.value = <div class="formHeader" id="post"></div>
+			5 = TEXT
+			5 {
+				#if.isTrue.field = postMessage
+				wrap = <div class="postMessage"> |</div>
+				field = postMessage
+			}
+			6 = TEXT
+			6 {
+				wrap = <h6 class="postError" >|</h6>
+				field = errorTitle
+				required = 1
+			}
+			7 = TEXT
+			7 {
+				wrap = <ul class="error postError">|</ul>
+				field = errorMsg
+				required = 1
+			}
+
+			10 = COA
+			10 {
+			##existiert field:postTitle (war commentTitle)
+				stdWrap.dataWrap = <div class="mailform"><h4>{field:postFormTitle}</h4><form action="{field:action}" enctype="multipart/form-data" method="post">|</form></div>
+				
+				#######################
+				# post author name
+				10 = COA
+				10 {
+					if.isTrue.field = showPostauthor
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					15 = TEXT
+					15 {
+						wrap = <div class="formLabel"><label for="postauthor">|</label></div>
+						field = postauthor_label
+					}
+
+					20 = TEXT
+					20 {
+						dataWrap = <div class="formField"><input type="text" id="postauthor" class="text" name="tx_t3blog_pi1[blogPost][postauthor]" {field:readOnly} value=" | " /></div>
+						htmlSpecialChars = 1
+						field = postauthor
+					}
+				}
+				#######################
+				
+				#######################
+				# post author email
+				20 = COA
+				20 {
+					if.isTrue.field = showPostauthoremail
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="postauthoremail"> |</label></div>
+						field = postauthoremail_label
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="text" class="text" id="postauthoremail" name="tx_t3blog_pi1[blogPost][postauthoremail]" {field:readOnly} value = " | " /></div>
+						field = postauthoremail
+						htmlSpecialChars = 1
+					}
+				}
+				#######################
+				
+				#######################
+				# post author website
+				30 = COA
+				30 {
+					if.isTrue.field = showPostauthorwebsite
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="postauthorwebsite"> |</label></div>
+						field = postauthorwebsite_label
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="text" class="text" id="postauthorwebsite" name="tx_t3blog_pi1[blogPost][postauthorwebsite]" {field:readOnly} value = " | " /></div>
+						field = postauthorwebsite
+						htmlSpecialChars = 1
+					}
+				}
+				#######################
+				
+				#######################
+				# post title
+				40 = COA
+				40 {
+					if.isTrue.field = showPosttitle
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="posttitle"> |</label></div>
+						field = posttitle_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><input type="text" class="text" id="posttitle" name="tx_t3blog_pi1[blogPost][posttitle]" value = " | " /></div>
+						field = posttitle
+						htmlSpecialChars = 1
+					}
+				}
+				#######################
+				
+				#######################
+				### post header
+				50 = COA
+				50 {
+					if.isTrue.field = showPostheader
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="postheader"> |</label></div>
+						field = postheader_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><input class="text" id="postheader" name="tx_t3blog_pi1[blogPost][postheader]" value= " | " /></div>
+						field = postheader
+						htmlSpecialChars = 1
+					}
+				}
+				#######################
+
+				#######################
+				# post text
+				60 = COA
+				60 {
+					if.isTrue.field = showPosttext
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="posttext"> |</label></div>
+						field = posttext_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div class="formField"><textarea class="text" id="posttext" name="tx_t3blog_pi1[blogPost][posttext]" cols="50" rows="10">|</textarea></div>
+						field = posttext
+						htmlSpecialChars = 1
+					}
+				}
+				#######################
+				
+				#######################
+				#file upload
+				65 = COA
+				65 {
+					if.isTrue.field = showFileupload
+					wrap = <div class="formElement text">|<div class=formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5{
+						wrap = <div class="errorMessage"> | </div>
+						required = 1
+						field = uploadStatus
+					}
+					
+					20 = TEXT
+					20 {
+						wrap =  <div class="formLabel"><label for="fileupload">&nbsp;|</label></div>
+						required = 1
+						field = fileupload_label
+					}
+					30 = TEXT
+					30 {
+						wrap = <div class="formField"><input type="file" class="text" id="fileupload" name="tx_t3blog_pi1[blogPost][fileupload]" |/></div>						
+					}
+					40 = TEXT
+					40 {
+						wrap = <div class="formField"><input type="hidden" class="text" id="maxFileSize" name="tx_t3blog_pi1[blogPost][maxFileSize]" value= " | " /></div>						
+						required = 1
+						field = maxFileSize
+					}
+					
+					50 = TEXT
+					50 {
+					
+					}
+					
+					60 =TEXT
+					60 {
+					 	wrap = <input type="hidden" name="tx_t3blog_pi1[blogPost][doUpload]" value="|"> 
+					 	#</form>
+					 	required = 1
+					 	field = doUpload
+					}
+				}
+				#######################
+
+				#######################
+				#captcha
+				
+				# captcha image
+				70 = COA
+				70 {
+					if.isTrue.field = showCaptchaimage
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="captchaimage">&nbsp;|</label></div>
+						required = 1
+						field = captchaimage_label
+					}
+
+					10 = TEXT
+					10 {
+						wrap = <div id="captchaimage" class="formField">|</div>
+						field = captchaimage
+						required = 1
+					}
+				}
+
+				#captchatext
+				80 = COA
+				80 {
+					if.isTrue.field = showCaptcha
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					if.isTrue.field = captcha
+					20 = TEXT
+					20 {
+						wrap =  <div class="formLabel"><label for="captcha">|</label></div>
+						required = 1
+						field = captcha_label
+					}
+
+					30 = TEXT
+					30 {
+						wrap = <div class="formField"><input type="text" id="captcha" class="text" name="tx_t3blog_pi1[blogPost][captcha]" value="" /></div>
+						if.isTrue.field = captcha
+					}
+				}
+				#######################
+				
+				#######################
+				#subscribe !!! not implemented yet
+				90 = COA
+				90 {
+					if.isTrue.field = showSubscribe
+					wrap = <div class="formElement text">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap =  <div class="formLabel"><label for="commenttext">|</label></div>
+						required = 1
+						field = subscribe_label
+					}
+
+					10 = TEXT
+					10 {
+						dataWrap = <div class="formField"><input type="checkbox" name="tx_t3blog_pi1[blogPost][subscribe]" | value="1" style="height: 10px; width: 10px !important; margin-right: 5px;" />{field:subscribe_text}</div>
+						field = subscribe
+						required = 1
+					}
+				}
+				#######################
+
+				#######################
+				# submit button, hidden fields
+				100 = COA
+				100 {
+					wrap = <div class="formElement">|<div class="formClear"><!-- clear --></div></div>
+					5 = TEXT
+					5 {
+						wrap = <div class="formLabel"><label for="post_submit">&nbsp;</label></div><div class="formField"><input type="submit" id="post_submit" class="button" name="tx_t3blog_pi1[blogPost][postsubmit]" value=" | " /></div>
+						field = submit_label
+					}
+				}
+
+				110 = TEXT
+				110.value = <input type="hidden" name="tx_t3blog_pi1[blogPost][insert]" value="1" />
+				#######################
+			}
+		}
+		
+		#####Post Form End ####
+	}
+}
+
+plugin.tx_t3blog_pi1.tx_t3feblog < plugin.tx_t3blog_pi2.tx_t3feblog

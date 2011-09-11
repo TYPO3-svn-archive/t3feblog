@@ -1,0 +1,46 @@
+# constants for t3feblog
+plugin.tx_t3blog_pi2.tx_t3feblog{
+	#cat=t3feblog/basic/enable/; type=boolean; label=Enable frontend post: Select to allow posting from frontend 
+	allowPosts = 
+	
+	#cat=t3feblog/basic/enable/; type=int+; label=Backend Group ID: Enter the UID of the backend group for new posts (creator)
+	backendGroupForFrontendPosts =
+	#cat=t3feblog/basic/enable/; type=int+; label=Backend User ID: Enter the UID of the backend user for new posts (creator). This user MUST NOT be admin!
+	backendUserForFrontendPosts =
+	
+	#cat=t3feblog/basic/enable/; type=int+; label=Post Category: Enter the UID of a t3blog category for new posts. MUST be set! Only one category is allowed. This category MUST NOT have subcategories!
+	postCategory =
+	
+
+	#cat=t3feblog/basic/enable/; type=boolean; label=Hide new posts: Select to hide new post until approved. 
+	postHidden = 1
+
+	#cat=t3feblog//; type=string; label=Enabled form fields: Enter a comma-separated list of fields. Available values are: postauthor, postauthoremail, postauthorwebsite, posttitle, postheader, posttext.
+	enabledFields =  postauthor, postauthoremail, postauthorwebsite, posttitle, postheader, posttext
+	
+	#cat=t3feblog//; type=string; label=Required form fields: Enter a comma-separated list of fields. Available values are: postauthor, postauthoremail, postauthorwebsite, posttitle, postheader, posttext. If 'Use captcha' is set it will be required (and you don't have to set it here).
+	requiredFields = postauthor, posttitle, postheader, posttext, captcha
+	
+	#cat=t3feblog/basic/enable/08; type=boolean; label=File upload allowed: Select to allow file upload in FE.
+	uploadAllowed = false
+	
+	#cat=t3feblog/basic/enable/; type=boolean; label=To-be-approved message: Select to show a message in front end that the post will be approved. Unselect to prevent showing this message. 
+	toBeApproved = 1
+	
+	#cat=t3feblog/basic/enable/; type=boolean; label=Use captcha: Select to show a captcha. Protects from automated postings. When shown it will be mandatory.
+	useCaptcha = 1
+		
+	#cat=t3feblog/email; type=boolean; label=Email notification: Select to send an email to admin when a new article was posted.
+	mailReceivedPostToAdmin = 1
+	#cat=t3feblog/email; type=email; label=Admins Email: Enter the mail address of the admin who approves new posts ('To:' field)
+	adminsPostsEmail = example@example.org
+	#cat=t3feblog/email; type=email; label=Sender Email: Enter the sender address of mails about new posts ('From:' field)
+	adminsPostEmailFrom = example@example.org
+	
+	#cat=t3feblog/file; type=file[html,htm,tmpl,txt] label= New post template: Template for notification email about new post.
+	adminsPostMailTemplate = EXT:t3feblog/widgets/fepost/adminemail.txt
+
+	#cat=t3feblog/file; type=file[xml] label= Language file for FE post widget: Custom localization file for form labels and dialogs.
+	fepostLLFile = EXT:t3feblog/widgets/fepost/locallang.xml
+	
+}
